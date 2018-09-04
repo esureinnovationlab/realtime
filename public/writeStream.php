@@ -6,7 +6,10 @@
  * Time: 10:24
  */
 require 'config.php';
-try {
+$req = $_POST;
+print_r($req);
+
+/*try {
     $sql  = 'SELECT * FROM `messages` WHERE `read` = 0';
     foreach($db->query($sql) as $row){
         $resp = json_encode($row);
@@ -15,4 +18,4 @@ try {
     }
 }catch (PDOException $e){
     print_r($e->getMessage());
-}
+}*/
