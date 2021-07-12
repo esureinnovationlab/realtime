@@ -6,16 +6,16 @@
  * Time: 10:24
  */
 require 'config.php';
-$req = $_POST;
-print_r($req);
 
-/*try {
-    $sql  = 'SELECT * FROM `messages` WHERE `read` = 0';
-    foreach($db->query($sql) as $row){
-        $resp = json_encode($row);
-        header('Content-Type: application/json');
-        echo $resp;
-    }
+$x = $_POST['x'];
+$y = $_POST['y'];
+$z = $_POST['z'];
+
+try {
+    $sql  = "INSERT INTO messages (x,y,z,created_at) VALUES ($x,$y,$z,NOW())";
+    $stmt= $db->prepare($sql);
+    $stmt->execute();
+    echo 'ok' ;
 }catch (PDOException $e){
     print_r($e->getMessage());
-}*/
+}
